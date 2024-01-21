@@ -1,4 +1,4 @@
-# Focusrite Technical Exercise
+# Bingo Challenge
 
 ## Usage
 
