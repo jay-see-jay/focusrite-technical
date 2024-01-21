@@ -1,4 +1,4 @@
-import parseArgs from "./arguments.ts"
+import parseArgs from "./helpers/arguments.ts"
 import partOne from "./part_one.ts";
 import partTwo from "./part_two.ts";
 

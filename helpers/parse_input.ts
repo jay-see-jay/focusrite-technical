@@ -9,7 +9,7 @@ export default async function parseInput(part: number): Promise<FileContents> {
     const fileName = getFileName(part)
 
     try {
-        const file = await Bun.file(`./${fileName}`).text()
+        const file = await Bun.file(`./input/${fileName}`).text()
         const lines = file.split("\n")
         const calledNumbers = converToArr(lines[0], ",")
         const boards = getBoards(lines)

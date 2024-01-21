@@ -1,4 +1,4 @@
-import parseInput from "./parse_input.ts";
+import parseInput from "./helpers/parse_input.ts";
 
 export default async function partTwo(): Promise<void> {
     const {calledNumbers, boards} = await parseInput(2)
