@@ -5,12 +5,14 @@ type Coord = {
 }
 
 export default class Board {
+    private readonly _matrix: number[][]
     private coordMap: Map<number, Coord>
     private readonly rows: number[]
     private readonly cols: number[]
     private _hasWon: boolean
 
     constructor(board: number[][]) {
+        this._matrix = board
         this.coordMap = this.initialiseCoordMap(board)
         const rows = board.length
         const cols = board[0].length
@@ -51,6 +53,23 @@ export default class Board {
 
     public get hasWon(): boolean {
         return this._hasWon
+    }
+
+    public get matrix(): string {
+        let out = ""
+        for (let i = 0; i < this._matrix.length; i += 1) {
+            for (let j = 0; j < this._matrix[0].length; j += 1) {
+                const number = this._matrix[i][j]
+                const {seen} = this.coordMap.get(number)!
+                if (seen) {
+                    out += " x "
+                } else {
+                    out += `${number < 10 ? " " : ""}${number} `
+                }
+            }
+            out += "\n"
+        }
+        return out
     }
 
     private incrementRow(row: number): void {

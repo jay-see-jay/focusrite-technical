@@ -5,26 +5,30 @@ type FileContents = {
     boards: Board[],
 }
 
-export default async function parseFile(part: number): Promise<FileContents> {
+export default async function parseInput(part: number): Promise<FileContents> {
     const fileName = getFileName(part)
 
-    const file = await Bun.file(`./${fileName}`).text()
-    const lines = file.split("\n")
-    const calledNumbers = converToArr(lines[0], ",")
-    const boards = getBoards(lines)
+    try {
+        const file = await Bun.file(`./${fileName}`).text()
+        const lines = file.split("\n")
+        const calledNumbers = converToArr(lines[0], ",")
+        const boards = getBoards(lines)
 
-    return {
-        calledNumbers,
-        boards
+        return {
+            calledNumbers,
+            boards,
+        }
+    } catch (e) {
+        throw e
     }
 }
 
 export function getFileName(part: number): string {
     if (part === 1) {
-        return "part_one.ts"
+        return "part_one.txt"
     }
     if (part === 2) {
-        return "part_two.ts"
+        return "part_two.txt"
     }
 
     throw Error(`No input file found for part ${part}`)
