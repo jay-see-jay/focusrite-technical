@@ -29,7 +29,7 @@ bun test
 
 ### Execute
 
-To see the result for each part of the challenge, pass the part number to as an argument:
+To see the result for each part of the challenge, pass the part number as an argument:
 
 ```shell
 bun start --part 2
