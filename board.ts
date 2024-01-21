@@ -54,18 +54,18 @@ export default class Board {
     }
 
     private incrementRow(row: number): void {
-        this.increment(this.rows, row)
+        this.increment(this.rows, row, this.cols.length)
     }
 
     private incrementCol(col: number): void {
-        this.increment(this.cols, col)
+        this.increment(this.cols, col, this.rows.length)
     }
 
-    private increment(line: number[], index: number): void {
+    private increment(line: number[], index: number, target: number): void {
         let count = line[index]
         count += 1
         line[index] = count
-        if (count === line.length && !this.hasWon) {
+        if (count === target && !this.hasWon) {
             this._hasWon = true
         }
     }
