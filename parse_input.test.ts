@@ -4,8 +4,8 @@ import Board from "./board.ts";
 
 describe("Parse input files", () => {
     test("Correct file name is returned", () => {
-        expect(getFileName(1)).toBe("part_one.ts")
-        expect(getFileName(2)).toBe("part_two.ts")
+        expect(getFileName(1)).toBe("part_one.txt")
+        expect(getFileName(2)).toBe("part_two.txt")
         expect(() => {
             getFileName(3)
         }).toThrow()
